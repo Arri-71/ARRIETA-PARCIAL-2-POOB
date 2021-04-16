@@ -10,7 +10,7 @@ public class NormalActivity extends Activity {
 
     public NormalActivity(String name, String state, Iteration iteration) {
         super(name, state, iteration);
-        this.steps = new ArrayList<>();
+        this.steps = new ArrayList<Step>();
     }
 
     public void addStep(Step step) {
@@ -18,7 +18,17 @@ public class NormalActivity extends Activity {
     }
 
     @Override
-    public Duration getDuration() {
-        return null;
+    public Duration getDuration() throws SabanaResearchException{
+        Duration duration=Duration.ofDays(0);
+        if(this.steps.size()!=0){
+            for (int i = 0; i <this.steps.size(); i++) {
+                Step s=this.steps.get(i);
+                duration=s.getDuration();
+            }
+        }
+        else {
+            throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_NORMAL_ACTIVITY);
+        }
+        return duration;
     }
 }

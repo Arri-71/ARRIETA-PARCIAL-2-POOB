@@ -12,6 +12,8 @@ public class Project {
     private LocalDate dateEnd;
     private Group group;
     private List<Iteration> iterations;
+    private ArrayList<Student> members;
+    private Student leader;
 
     public Project(String name, LocalDate dateInit, LocalDate dateEnd, Group group) {
         this.name = name;
@@ -19,6 +21,8 @@ public class Project {
         this.dateEnd = dateEnd;
         this.group = group;
         this.iterations = new ArrayList<>();
+        this.members= members;
+        this.leader= leader;
 
         group.addProject(this);
     }
@@ -28,8 +32,22 @@ public class Project {
     }
 
     public Duration getDuration() throws SabanaResearchException {
-        return Duration.ofDays(0);
+        Duration duration= Duration.ofDays(0);
+        if(this.iterations.size()!=0) {
+            for (int i = 0; i < this.iterations.size(); i++) {
+                Iteration it = this.iterations.get(i);
+                duration = it.getDuration();
+            }
+        }
+        else {
+            throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_PROJECT);
+        }
+        return duration ;
+    }
+    public boolean isActive() {
+        return this.iterations.size() != 0 && !this.dateEnd.isBefore(LocalDate.now());
     }
 
-
+    public List<Iteration> getIterations() {
+        return iterations;}
 }

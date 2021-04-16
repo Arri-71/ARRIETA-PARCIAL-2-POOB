@@ -22,3 +22,4 @@ porque puede redifinir un metodo ya construido para adaptarlo a nuestras necesid
 
 declarando ese metodo como estatico.
 >>>>>>> 97a5f80852cc94596c466827adfe283053415469
+pdt tuve que hacer como 3 repositoris de git pero este es el bueno, por eso los commits estan tan recientes entre si 

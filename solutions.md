@@ -26,3 +26,4 @@ pdt tuve que hacer como 3 repositoris de git pero este es el bueno, por eso los 
 
 ![DISEÑO PARCIAL (1)](https://user-images.githubusercontent.com/78420224/115094861-b5842300-9ee4-11eb-8218-a9f572cdb30e.png)
 
+yo añadi clases pero no las pude diseñar fsta 

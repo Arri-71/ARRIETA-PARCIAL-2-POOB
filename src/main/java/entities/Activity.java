@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public abstract class Activity {
 

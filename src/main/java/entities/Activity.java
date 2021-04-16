@@ -12,11 +12,23 @@ public abstract class Activity {
     private String name;
     private String state;
     private Iteration iteration;
+    private ArrayList<Student> students;
+    private int estimatedDuration;
+
+    public Activity(String name, String state, Iteration iteration, int estimatedDuration) {
+        this.name = name;
+        this.state = state;
+        this.estimatedDuration=estimatedDuration;
+        this.students= new ArrayList<Student> ();
+        if (iteration != null) {
+            this.iteration = iteration;
+            this.iteration.addActivity(this);
+        }
+    }
 
     public Activity(String name, String state, Iteration iteration) {
         this.name = name;
         this.state = state;
-
         if (iteration != null) {
             this.iteration = iteration;
             this.iteration.addActivity(this);
@@ -29,7 +41,10 @@ public abstract class Activity {
      * @return true if the activity is in state pending or active, otherwise return false.
      */
     public boolean isActive() {
-        return false;
+        if(this.state==ACTIVE_STATE||this.state==PENDING_STATE){
+            return true;
+        }
+        else {return false;}
     }
 
     /**
@@ -37,6 +52,6 @@ public abstract class Activity {
      *
      * @return
      */
-    public abstract Duration getDuration();
+    public abstract Duration getDuration() throws SabanaResearchException;
 
 }

@@ -32,18 +32,17 @@ public class Project {
     }
 
     public Duration getDuration() throws SabanaResearchException {
-        Duration duration= Duration.ofDays(0);
-        if(this.iterations.size()!=0) {
-            for (int i = 0; i < this.iterations.size(); i++) {
-                Iteration it = this.iterations.get(i);
-                duration = it.getDuration();
-            }
-        }
-        else {
+
+        if (this.iterations.isEmpty())
             throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_PROJECT);
+
+        Duration d = Duration.ZERO;
+        for (Iteration i : this.iterations){
+            d=d.plus(i.getDuration());
         }
-        return duration ;
+        return d;
     }
+
     public boolean isActive() {
         boolean isActive;
 
@@ -58,14 +57,15 @@ public class Project {
         return isActive;
     }
 
+
+
     public int countOpenActivities(){
+
         return this.iterations
                 .stream()
                 .map(Iteration::countOpenActivities)
                 .reduce(0, Integer::sum);
     }
-
-
     public List <String> summarize(ISynthesizer s) throws SabanaResearchException {
         return s.synthezise();
     }

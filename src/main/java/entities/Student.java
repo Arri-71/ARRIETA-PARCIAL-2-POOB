@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class Student {
@@ -25,5 +26,19 @@ public class Student {
 
     public void addCourseApproved(Course course) {
         this.approved.add(course);
+    }
+    public Duration getActivitiesDuration() throws SabanaResearchException {
+
+        Duration d = Duration.ZERO;
+
+        for (Activity a: assignedActivities){
+            d = d.plus(a.getDuration());
+        }
+
+        return d;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

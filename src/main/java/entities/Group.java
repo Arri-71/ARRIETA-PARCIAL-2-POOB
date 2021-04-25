@@ -83,4 +83,10 @@ public class Group {
     public void setRequirements(ArrayList<Course> requirements) {
         this.requirements = requirements;
     }
+
+        public int countActiveProjects() {
+            return(int) this.projects.stream().map(Project::isActive).filter(b -> b).count();
+        }
+
 }
+

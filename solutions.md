@@ -55,3 +55,36 @@ pdt tuve que hacer como 3 repositoris de git pero este es el bueno, por eso los 
 yo añadi clases pero no las pude diseñar fsta 
 tambien intente implementar una parte del bono pero lo mismo
 >>>>>>> 9c4fe3fc1540511337c8959ba4611191487291ed
+>>>>>>> 
+
+
+
+
+
+**correcion**
+¿Cuáles son las acciones los tres momentos importantes de las excepciones? ¿Cuál es el objetivo de cada una? ¿Cómo se implementa en Java cada acción?.
+
+Lanzar, propagar y capturar
+
+lanzar: ocurrio una excepcion y se quiere mostrar eso
+propagar: responsabilizar a un metodo especifico sobre una excepcion que puede ocurrir en cualquier momento del codigo
+capturar: controlar una expcecion lanzada en alguna parte del codigo
+
+con los metodos en el resptectivo orden trowh, propagate, y el bloque try-catch-final
+
+Qué es sobre-escritura de métodos? ¿Por qué aplicarla? ¿Cómo impedir que se sobre-escriba un método?.
+
+nos permite redifinir un método que heredamos para que este funcione de acuerdo a nuestras necesidades y no a lo definido en la superclase.
+
+porque puede redifinir un metodo ya construido para adaptarlo a nuestras necesidades
+
+declarando ese metodo como final. lo que hace que sea imposble sobre escirbirlo.
+
+**DISEÑANDO**
+
+![Diseño 1 parcial](https://user-images.githubusercontent.com/78420224/116012240-14d1e980-a5ef-11eb-8546-b37c0bc37633.png)
+![Diseño 2 parcial](https://user-images.githubusercontent.com/78420224/116012248-18fe0700-a5ef-11eb-914c-9f3a73b3b6c6.png)
+
+PDT: INTENTE REALIZAR LOS BONUS CON SUS RESPECTIVAS CLASES, PERO AL NO ESTAR EN MI PC NO ME FUNCIONA DEL TODO QUIZAS POR EL JUNIT...
+
+

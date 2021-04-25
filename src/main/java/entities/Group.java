@@ -84,9 +84,10 @@ public class Group {
         this.requirements = requirements;
     }
 
-        public int countActiveProjects() {
-            return(int) this.projects.stream().map(Project::isActive).filter(b -> b).count();
-        }
+    public int countActiveProjects() {
+        return(int) this.projects.stream().map(Project::isActive).filter(b -> b).count();
+    }
 
 }
+
 

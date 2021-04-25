@@ -3,6 +3,9 @@ package entities;
 import java.time.Duration;
 import java.util.ArrayList;
 
+import java.time.Duration;
+import java.util.ArrayList;
+
 public class Student {
     private int code;
     private String name;

@@ -41,4 +41,11 @@ public class DocumentedActivity extends Activity {
         }
         return duration;
     }
+    @Override
+    public boolean isActive() {
+        return super.isActive();
+    }
+
+
+
 }

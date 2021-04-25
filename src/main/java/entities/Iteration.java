@@ -37,18 +37,36 @@ public class Iteration {
         return this.activities;
     }
 
-    public Duration getDuration() throws SabanaResearchException{
+    public Duration getDuration() throws SabanaResearchException {
         Duration duration = Duration.ofDays(0);
-        if(this.activities.size()!=0) {
+        if (this.activities.size() != 0) {
             for (int i = 0; i < this.activities.size(); i++) {
                 Activity a = this.activities.get(i);
                 duration = a.getDuration();
             }
-        }
-        else {
+        } else {
             throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_ITERATION);
         }
         return duration;
+    }
+
+    public String getObjective() {
+        return this.goal;
+    }
+
+    public int countOpenActivities() {
+        int count =0;
+
+        for(Activity a: this.activities){
+            if(a.isActive()){
+                count++;
+            }
+        }
+        return (int) this.activities.stream()
+                .map(Activity::isActive)
+                .filter(b -> b)
+                .count();
+
     }
 }
 

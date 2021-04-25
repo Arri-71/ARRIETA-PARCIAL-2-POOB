@@ -47,6 +47,10 @@ public abstract class Activity {
         }
         else {return false;}
     }
+    public boolean isClosed()  {
+
+        return !isActive();
+    }
 
     /**
      * Get the duration of the activity.

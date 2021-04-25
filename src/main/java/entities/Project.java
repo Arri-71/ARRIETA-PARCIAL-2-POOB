@@ -45,9 +45,36 @@ public class Project {
         return duration ;
     }
     public boolean isActive() {
-        return this.iterations.size() != 0 && !this.dateEnd.isBefore(LocalDate.now());
+        boolean isActive;
+
+        if(LocalDate.now().isAfter(this.dateEnd)){
+            isActive = false;
+        }
+        else{
+            int openActivities = this.countOpenActivities();
+            isActive = openActivities > 0;
+        }
+
+        return isActive;
+    }
+
+    public int countOpenActivities(){
+        return this.iterations
+                .stream()
+                .map(Iteration::countOpenActivities)
+                .reduce(0, Integer::sum);
+    }
+
+
+    public List <String> summarize(ISynthesizer s) throws SabanaResearchException {
+        return s.synthezise();
+    }
+
+    public void setDateEnd(LocalDate dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
     public List<Iteration> getIterations() {
-        return iterations;}
+        return iterations;
+    }
 }
